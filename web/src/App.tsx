@@ -1,11 +1,10 @@
 import React from "react";
 
-import Landing from "./pages/Landing";
-
 import "./global.css";
+import Routes from "./routes";
 
 const App = () => {
-  return <Landing />;
+  return <Routes />;
 };
 
 export default App;
