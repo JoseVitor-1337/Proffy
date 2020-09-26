@@ -2,40 +2,46 @@ import React from "react";
 
 import "./style.css";
 
+import { ITeachers } from "../../pages/TeacherList";
 import whatsappIcon from "../../assets/images/icons/whatsapp.svg";
+import api from "../../services/api";
 
-const TeacherItem = () => {
+interface IProps {
+  teacher: ITeachers;
+}
+
+const TeacherItem: React.FC<IProps> = ({ teacher }) => {
+  function createNewConnection() {
+    api.post("/connections", {
+      user_id: teacher.id,
+    });
+  }
   return (
     <article className="teacher-item">
       <header>
-        <img
-          src="https://avatars3.githubusercontent.com/u/59937924?s=460&v=4"
-          alt="github"
-        />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>Nome do professor</strong>
-          <span>Materia</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
 
-      <p>
-        To sem criatividade para criar um título
-        <br></br>
-        <br></br>
-        Qualquer coisa sobre ser um professor e passar assuntos do ensino médio
-        provavelmente, afinal para o momento em que estamos passando, é uma boa
-        ideia a metodologia de estudos online
-      </p>
+      <p>{teacher.bio}</p>
 
       <footer>
         <p>
           Preço/hora
-          <strong>R$ 50,00</strong>
+          <strong>R$ {teacher.cost}</strong>
         </p>
-        <button>
+        <a
+          onClick={createNewConnection}
+          href={`https://wa.me/${teacher.whatsapp}`}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <img src={whatsappIcon} alt="Whatsapp" />
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </article>
   );
