@@ -7,10 +7,15 @@ import { ReactElement } from "react";
 
 type IPageHeaderProps = {
   title: string;
-  children: ReactElement;
+  description?: string;
+  children?: ReactElement;
 };
 
-export default function PageHeader({ children, title }: IPageHeaderProps) {
+export default function PageHeader({
+  children,
+  title,
+  description,
+}: IPageHeaderProps) {
   return (
     <header className="page-header">
       <div className="top-bar-container">
@@ -23,7 +28,7 @@ export default function PageHeader({ children, title }: IPageHeaderProps) {
 
       <div className="header-content">
         <strong>{title}</strong>
-
+        {description && <p>{description}</p>}
         {children}
       </div>
     </header>

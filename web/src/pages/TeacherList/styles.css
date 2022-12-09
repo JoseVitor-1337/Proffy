@@ -12,31 +12,6 @@
   color: var(--color-text-in-primary);
 }
 
-#search-teaches .input-block {
-  position: relative;
-}
-
-#search-teaches .input-block label {
-  font-size: 1.4rem;
-}
-
-#search-teaches .input-block input {
-  width: 100%;
-  height: 5.6rem;
-  margin-top: 0.8rem;
-  border-radius: 0.8rem;
-  transition: all 250ms;
-  background: var(--color-input-background);
-  border: 2px solid var(--color-line-in-white);
-  outline: 0;
-  padding: 0 1.6rem;
-  font: 1.6rem Archivo;
-}
-
-#search-teaches .input-block input:focus {
-  border-color: var(--color-primary-dark);
-}
-
 #page-teacher-list section {
   margin: 3.2rem auto;
   width: 90%;
