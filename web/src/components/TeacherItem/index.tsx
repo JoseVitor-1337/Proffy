@@ -1,42 +1,51 @@
 import WhatsappIcon from "../../assets/images/icons/whatsapp.svg";
+import { ITeacher } from "../../pages/TeacherList";
+import api from "../../services/api";
 
 import "./styles.css";
 
-export default function TeacherItem() {
+interface ITeacherItemProps {
+  teacher: ITeacher;
+}
+
+const TeacherItem: React.FC<ITeacherItemProps> = ({ teacher }) => {
+  const createConnection = () => {
+    api.post("/connections", {
+      user_id: teacher.id,
+    });
+  };
+
   return (
     <section>
       <article className="teacher-item">
         <header>
-          <img
-            src="https://randomuser.me/api/portraits/men/86.jpg"
-            alt="John Doe"
-          />
+          <img src={teacher.avatar} alt={teacher.name} />
           <div>
-            <strong>John Doe</strong>
-            <span>Quimica</span>
+            <strong>{teacher.name}</strong>
+            <span>{teacher.subject}</span>
           </div>
         </header>
 
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, est!
-          <br />
-          <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-          officiis quo, sit tempora libero voluptatum magni suscipit
-          perspiciatis beatae autem! Magni fuga illo voluptatibus ducimus vel,
-          molestiae commodi sed quibusdam?
-        </p>
+        <p>{teacher.bio}</p>
 
         <footer>
           <p>
-            Preço/hora <strong>R$ 80,00</strong>
+            Preço/hora <strong>R$ {teacher.cost}</strong>
           </p>
-          <button type="button">
+          <a
+            onClick={createConnection}
+            href={`https://api.whatsapp.com/send?phone=${teacher.whatsapp}`}
+            type="button"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={WhatsappIcon} alt="Whatsapp" />
             Entrar em contato
-          </button>
+          </a>
         </footer>
       </article>
     </section>
   );
-}
+};
+
+export default TeacherItem;
