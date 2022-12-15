@@ -18,11 +18,7 @@
 - Expo
 - React native
 
-<br />
-
 ## How i start this site?
-
-<br />
 
 ## Prerequisites
 
@@ -34,8 +30,6 @@
 
 > Need have **expo** app in your mobile device.
 
-<br />
-
 ## Follow theses steps
 
 Open you Terminal and run this commands:
@@ -46,8 +40,6 @@ git clone https://github.com/JoseVitor-1337/aircnc.git
 cd aircnc
 
 ```
-
-<br>
 
 ## To Start Back End
 
@@ -62,8 +54,6 @@ npm run dev
 
 ```
 
-<br>
-
 ## To Start Front End (Web)
 
 Open the **web** folder in your terminal and run:
@@ -76,8 +66,6 @@ npm install
 npm start
 
 ```
-
-<br>
 
 ## To Start Mobile
 
